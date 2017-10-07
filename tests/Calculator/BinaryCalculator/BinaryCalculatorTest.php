@@ -56,4 +56,32 @@ class BinaryCalculatorTest extends TestCase
         $result = $this->calculator->add($a, $b);
         $this->assertEquals($result, $expected);
     }
+
+    public function minusProvider()
+    {
+        return [
+            [10, 1, 1],
+            [11, 1, 10],
+            [1010, 1001, 1],
+            [1010, 111, 11],
+            [0, 0, 0]
+        ];
+    }
+
+    /**
+     * @dataProvider minusProvider
+     */
+    public function testMinus($a, $b, $expected)
+    {
+        $result = $this->calculator->minus($a, $b);
+        $this->assertEquals($result, $expected);
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testMinusException()
+    {
+        $this->calculator->minus(1, 10);
+    }
 }

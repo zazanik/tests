@@ -38,12 +38,39 @@ class BinaryCalculator extends Calculator
 
         $result = $this->reverseArray($result);
 
-        return implode('', $result);
+        return intval(implode('', $result));
     }
 
     public function minus($a, $b)
     {
+        if ($b > $a) {
+            throw new \Exception('Second number should be less');
+        }
 
+        $preparedNumbers = $this->prepareNumbers($a, $b);
+
+        $b = $this->reverseArray($preparedNumbers->b);
+        $b = $this->inverseNumber($b);
+        $b = intval(implode('', $b));
+
+        $b = $this->add(1, $b);
+
+        $result = $this->add($a, $b);
+
+        return substr($result, 1);
+    }
+
+    private function inverseNumber($array)
+    {
+        for ($i = 0; $i < sizeof($array); $i++) {
+            if ($array[$i] == 0) {
+                $array[$i] = 1;
+            } else {
+                $array[$i] = 0;
+            }
+        }
+
+        return $array;
     }
 
     private function prepareNumbers($a, $b)
@@ -102,7 +129,7 @@ class BinaryCalculator extends Calculator
                 $nullArray[$i] = 0;
             }
 
-            $result = array_merge($nullArray,$array);
+            $result = array_merge($nullArray, $array);
         }
 
         return $result;
@@ -110,6 +137,6 @@ class BinaryCalculator extends Calculator
 
     private function reverseArray($array)
     {
-       return array_reverse($array);
+        return array_reverse($array);
     }
 }
