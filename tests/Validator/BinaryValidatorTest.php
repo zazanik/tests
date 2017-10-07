@@ -57,8 +57,8 @@ class BinaryValidatorTest extends TestCase
      */
     public function testValidate($data)
     {
-       $result = $this->validator->validate($data);
+        $result = $this->validator->validate($data);
 
-       $this->assertEquals($data, $data);
+        $this->assertEquals(null, $result);
     }
 }
