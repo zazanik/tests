@@ -1,0 +1,16 @@
+{
+    "name": "admin/test",
+    "authors": [
+        {
+            "name": "Oleksandr Zaporozhets",
+            "email": "oleksandr.zaporozhets@mev.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Main\\": "src/"},
+        "tests": {"Test\\": "tests/"}
+    },
+    "require": {
+        "phpunit/phpunit": "^5.7"
+    }
+}
