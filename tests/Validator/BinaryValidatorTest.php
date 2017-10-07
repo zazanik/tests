@@ -29,7 +29,9 @@ class BinaryValidatorTest extends TestCase
             ['qwerty'],
             ['123'],
             [23],
-            [17]
+            [17],
+            [-11],
+            [+12]
         ];
     }
 

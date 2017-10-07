@@ -10,6 +10,7 @@ class BinaryValidator implements Validator
     {
         $this->checkForNumber($number);
         $this->checkNumberBitCapacity($number);
+        $this->checkForSymbols($number);
     }
 
     /**
@@ -35,6 +36,17 @@ class BinaryValidator implements Validator
     {
         if (! is_integer($number)) {
             throw new \Exception('You number must be integer');
+        }
+    }
+
+    protected function checkForSymbols($number)
+    {
+        $numberArray = str_split($number);
+
+        foreach ($numberArray as $item) {
+            if ($item == '-' || $item == '+') {
+                throw new \Exception('In your number should not be \'+\' or \'-\'');
+            }
         }
     }
 }
