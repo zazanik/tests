@@ -25,7 +25,6 @@ class BinaryCalculatorTest extends TestCase
             ->method('validate')
             ->will($this->returnValue(true));
 
-
         $this->calculator = new BinaryCalculator($mock);
     }
 

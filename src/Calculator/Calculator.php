@@ -21,7 +21,7 @@ abstract class Calculator
         $this->validator = $validator;
     }
 
-    abstract function add($a, $b);
+    abstract public function add($a, $b);
 
-    abstract function minus($a, $b);
+    abstract public function minus($a, $b);
 }
